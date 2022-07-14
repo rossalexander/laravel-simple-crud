@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\Product;
+use App\Models\ProductReview;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Schema;
@@ -80,5 +82,23 @@ class ProductTest extends TestCase
 
         /* Assert */
         $this->assertEquals(50.00, $formatted_price);
+    }
+
+    /** @test */
+    public function a_product_can_have_reviews(): void
+    {
+        /* Arrange */
+        $user = User::factory()->create();
+        $product = Product::factory()->create();
+        $review = ProductReview::factory()->create([
+            'product_id' => $product->id,
+            'user_id' => $user->id,
+        ]);
+
+        /* Act */
+        $reviews = $product->reviews;
+
+        /* Assert */
+        $this->assertCount(1, $reviews);
     }
 }

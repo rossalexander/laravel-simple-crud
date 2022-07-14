@@ -29,7 +29,9 @@
             @endauth
         </div>
     @endif
-    {{$slot}}
+    <main class="mx-auto max-w-4xl items-center justify-center flex flex-col">
+        {{$slot}}
+    </main>
 </div>
 </body>
 </html>

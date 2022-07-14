@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,5 @@ Route::get('/', function () {
 Route::prefix('products')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('product.index');
     Route::get('/{product:slug}', [ProductController::class, 'show'])->name("product.show");
+    Route::post('/{product:slug}/reviews', [ProductReviewController::class, 'store'])->name('product.review.store');
 });
