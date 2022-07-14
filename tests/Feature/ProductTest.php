@@ -38,6 +38,21 @@ class ProductTest extends TestCase
     }
 
     /** @test */
+    public function a_product_has_a_slug(): void
+    {
+        /* Arrange */
+        $product = Product::factory()->create([
+            'slug' => 'sample-product'
+        ]);
+
+        /* Act */
+        $slug = $product->slug;
+
+        /* Assert */
+        $this->assertEquals('sample-product', $slug);
+    }
+
+    /** @test */
     public function a_product_has_a_price(): void
     {
         /* Arrange */

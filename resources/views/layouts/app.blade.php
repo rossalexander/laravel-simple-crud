@@ -10,7 +10,7 @@
 
 <div class="p-4">
     <nav>
-        <a href="{{route('products.index')}}">Products</a>
+        <a href="{{route('product.index')}}">Products</a>
     </nav>
     @if (Route::has('login'))
         <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
